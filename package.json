@@ -1,0 +1,18 @@
+{
+  "name": "brahmo-mern-assessment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BRAHMO Knowledge Questions → Typed Nodes → Filtered Context → AI Session MERN assessment project",
+  "scripts": {
+    "install:all": "npm install && npm --prefix backend install && npm --prefix frontend install",
+    "dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\"",
+    "seed": "npm --prefix backend run seed",
+    "seed:month12": "npm --prefix backend run seed:month12",
+    "build": "npm --prefix frontend run build",
+    "start": "npm --prefix backend start",
+    "lint": "npm --prefix backend run lint && npm --prefix frontend run lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

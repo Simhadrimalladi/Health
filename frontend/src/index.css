@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html { font-family: 'Inter', system-ui, sans-serif; }
+  body {
+    @apply bg-surface-900 text-slate-100 antialiased;
+    background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply rounded-full bg-slate-600; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-slate-500; }
+}
+
+@layer components {
+  /* Cards */
+  .card {
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-card;
+  }
+  .card-solid {
+    @apply rounded-2xl border border-slate-700/50 bg-surface-800 shadow-card;
+  }
+  .card-glass {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    @apply rounded-2xl border border-white/10 shadow-glow;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-surface-900;
+  }
+  .btn-primary {
+    @apply btn bg-brand-gradient text-white shadow-glow hover:opacity-90 hover:shadow-lg hover:-translate-y-px active:translate-y-0 focus:ring-brand-500;
+  }
+  .btn-secondary {
+    @apply btn border border-white/20 bg-white/10 text-slate-200 hover:bg-white/20 hover:border-white/30 focus:ring-brand-500;
+  }
+  .btn-danger {
+    @apply btn bg-red-600/80 text-white hover:bg-red-600 focus:ring-red-500;
+  }
+  .btn-ghost {
+    @apply btn text-slate-400 hover:text-slate-200 hover:bg-white/10;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-slate-100 placeholder-slate-500
+           outline-none transition-all duration-200
+           focus:border-brand-500/60 focus:ring-2 focus:ring-brand-500/20 focus:bg-white/8;
+  }
+  .select { @apply input; }
+  .label { @apply block text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1.5; }
+
+  /* Nav item */
+  .nav-item {
+    @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-semibold text-slate-400 transition-all duration-200
+           hover:bg-white/10 hover:text-slate-200 cursor-pointer;
+  }
+  .nav-item-active {
+    @apply nav-item bg-brand-gradient text-white shadow-glow;
+  }
+
+  /* Stat card */
+  .stat-card {
+    @apply card p-5 flex flex-col gap-1 hover:border-brand-500/30 transition-all duration-300;
+  }
+
+  /* Type badge ring colors */
+  .type-constraint  { @apply border-red-500/40 bg-red-500/10 text-red-300; }
+  .type-decision    { @apply border-amber-500/40 bg-amber-500/10 text-amber-300; }
+  .type-antipattern { @apply border-purple-500/40 bg-purple-500/10 text-purple-300; }
+  .type-fact        { @apply border-sky-500/40 bg-sky-500/10 text-sky-300; }
+
+  /* Progress bar */
+  .progress-track { @apply h-2 w-full rounded-full bg-white/10 overflow-hidden; }
+  .progress-fill  { @apply h-2 rounded-full transition-all duration-700; }
+
+  /* Divider */
+  .divider { @apply border-t border-white/10; }
+
+  /* Code block */
+  .code-block {
+    @apply rounded-xl bg-black/40 border border-white/10 p-4 text-xs text-slate-300 font-mono overflow-auto;
+  }
+
+  /* Section header */
+  .section-header {
+    @apply flex items-center gap-3 mb-4;
+  }
+  .section-dot {
+    @apply w-2.5 h-2.5 rounded-full flex-shrink-0;
+  }
+
+  /* Glow line */
+  .glow-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.6), transparent);
+  }
+
+  /* Animate in */
+  .animate-in { @apply animate-fade-in; }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #818cf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .bg-white\/8 { background-color: rgba(255,255,255,0.08); }
+  .node-source-badge {
+    @apply text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded-md;
+  }
+}
